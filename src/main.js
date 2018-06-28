@@ -16,7 +16,7 @@ let config = {
   storageBucket: 'vue-firebase-tutorial-d5d0d.appspot.com',
   messagingSenderId: '486078846453'
 }
-
+console.log(process.env.TEST)
 firebase.initializeApp(config)
 firebase.auth().onAuthStateChanged(function (user) {
   if (!app) {
