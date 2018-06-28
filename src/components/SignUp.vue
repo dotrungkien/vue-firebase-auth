@@ -9,31 +9,32 @@
 </template>
 
 <script>
-    import firebase from 'firebase'
+import firebase from 'firebase'
 
-    export default {
-        name: 'SignUp',
-        data: function () {
-            return {
-                email: '',
-                password: ''
-            }
-        },
-        methods: {
-            signUp: function () {
-                firebase
-                .auth()
-                .createUserWithEmailAndPassword(this.email, this.password)
-                .then(
-                    function (user) {
-                        alert('Your account has been created!')
-                    }, function (err) {
-                        alert('Ooops. ' + err.message)
-                    }
-                )
-            }
+export default {
+    name: 'SignUp',
+    data: function () {
+        return {
+            email: '',
+            password: ''
+        }
+    },
+    methods: {
+        signUp: function () {
+            firebase
+            .auth()
+            .createUserWithEmailAndPassword(this.email, this.password)
+            .then(
+                (user) => {
+                    this.$router.replace('hello')
+                },
+                (err) => {
+                    alert('Ooops. ' + err.message)
+                }
+            )
         }
     }
+}
 </script>
 
 <style scoped>
